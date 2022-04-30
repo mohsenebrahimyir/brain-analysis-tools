@@ -107,7 +107,7 @@ sub-26
 از نوشتن کد تکراری جلوگیری کنیم.
 
 ```bash
-for i in `seq 1 26`; do echo “sub-$i”; done
+$ for i in `seq 1 26`; do echo “sub-$i”; done
 ```
 ```
 sub-1
@@ -121,7 +121,7 @@ sub-26
 به صورت زیر نیز عمل کنیم.
 
 ```bash
-for i in `seq -w 1 26`; do echo “sub-$i”; done
+$ for i in `seq -w 1 26`; do echo “sub-$i”; done
 ```
 ```
 sub-01
@@ -139,7 +139,7 @@ sub-26
 حلقه اجرا کنیم.
 
 ```bash
-for i in `ls ~/`; do echo $i; done
+$ for i in `ls ~/`; do echo $i; done
 ```
 ```
 bin
