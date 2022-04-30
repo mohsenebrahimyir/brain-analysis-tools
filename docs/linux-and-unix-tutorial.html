@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>فصل 1 آموزش لینوکس و یونیکس | ابزارهای تحلیل مغز</title>
+  <meta name="description" content="فصل 1 آموزش لینوکس و یونیکس | ابزارهای تحلیل مغز" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="فصل 1 آموزش لینوکس و یونیکس | ابزارهای تحلیل مغز" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://mohsenebrahimy.ir/book/brain-analysis-tools/" />
+  <meta property="og:image" content="https://mohsenebrahimy.ir/book/brain-analysis-tools/./img/cover.jpg" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="فصل 1 آموزش لینوکس و یونیکس | ابزارهای تحلیل مغز" />
+  
+  
+  <meta name="twitter:image" content="https://mohsenebrahimy.ir/book/brain-analysis-tools/./img/cover.jpg" />
+
+<meta name="author" content="محسن ابراهیمی" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!DOCTYPE HTML>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300&display=swap" rel="stylesheet">
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="stl/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">ابزارهای تحلیل مغز</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>پیش گفتار</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>مقدمه</a></li>
+<li class="chapter" data-level="1" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html"><i class="fa fa-check"></i><b>1</b> آموزش لینوکس و یونیکس</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#مسیرها-و-پوشهها"><i class="fa fa-check"></i><b>1.1</b> مسیرها و پوشه‌ها</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#آدرس-دهی"><i class="fa fa-check"></i><b>1.1.1</b> آدرس دهی</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#دستورات-کاربردی"><i class="fa fa-check"></i><b>1.2</b> دستورات کاربردی</a></li>
+<li class="chapter" data-level="1.3" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#کار-با-فایلها-و-پوشهها"><i class="fa fa-check"></i><b>1.3</b> کار با فایل‌ها و پوشه‌ها</a></li>
+<li class="chapter" data-level="1.4" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#واژههای-کلیدی"><i class="fa fa-check"></i><b>1.4</b> واژه‌های کلیدی</a></li>
+<li class="chapter" data-level="1.5" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#خواندن-فایل"><i class="fa fa-check"></i><b>1.5</b> خواندن فایل</a></li>
+<li class="chapter" data-level="1.6" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#شل-و-متغیرهای-مسیرها"><i class="fa fa-check"></i><b>1.6</b> شل و متغیرهای مسیرها</a></li>
+<li class="chapter" data-level="1.7" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#تعریف-متغییر"><i class="fa fa-check"></i><b>1.7</b> تعریف متغییر</a></li>
+<li class="chapter" data-level="1.8" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#حلقه-for"><i class="fa fa-check"></i><b>1.8</b> حلقه <code>for</code></a></li>
+<li class="chapter" data-level="1.9" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#overview"><i class="fa fa-check"></i><b>1.9</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>منابع</a></li>
+<li class="divider"></li>
+&nbsp;
+<hr />
+<p style="text-align: center;">
+  <a href="https://mohsenebrahimy.ir/">
+  محسن ابراهیمی
+  <br/>
+ <span style="color: #808080;"><em>www.mohsenebrahimy.ir</em></span>
+ </a>
+</p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<p style="text-align: center;">
+ <a href="https://web.whatsapp.com/send?phone=989118645816" class="fa fa-whatsapp fa-3x" style="color:green"></a>
+</p>
+&nbsp;
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ابزارهای تحلیل مغز</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="linux-and-unix-tutorial" class="section level1" number="1">
+<h1><span class="header-section-number">فصل 1</span> آموزش لینوکس و یونیکس</h1>
+<ul>
+<li><strong>ترمینال (Terminal) یا خط فرمان (<span dir="ltr">Command line</span>)</strong>:
+به جای کلیک کردن با موس از طریق ترمینال مستقیم دستورات را اجرا می‌کنیم.</li>
+</ul>
+<pre class="terminal"><code>&gt;_</code></pre>
+<ul>
+<li><strong>خط فرمان لینوکس و یونیکس (bash)</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="linux-and-unix-tutorial.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div>
+<ul>
+<li>دانلود <strong>Cygwin</strong> برای ویندوز:
+<span dir="ltr"><a href="https://www.cygwin.com/" class="uri">https://www.cygwin.com/</a></span></li>
+</ul>
+
+<div id="مسیرها-و-پوشهها" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> مسیرها و پوشه‌ها</h2>
+<ul>
+<li><strong>پوشه (<span dir="ltr">Directory or Folder</span>)</strong></li>
+<li><strong>مسیر یا آدرس (Path)</strong></li>
+</ul>
+<pre><code>/
+├── bin
+|   ├── ls
+|   ├── cd
+|   ├── pwd
+|   └── ...
+├── home
+|   └── user
+|       ├── Desktop
+|       ├── Documents
+|       ├── Downloads
+|       └── ...
+├── mnt
+├── sys
+└── ...</code></pre>
+<div id="آدرس-دهی" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> آدرس دهی</h3>
+<p>آدرس دهی مطلق:</p>
+<ul>
+<li><p><code>/</code>:
+ریشه (Root)
+اصلی و جدا کننده ترتیب سلسله مراتبی
+پوشه‌ها
+(<span dir="ltr"><code>/&lt;DIR&gt;/&lt;SUBDIR&gt;/</code></span>)</p></li>
+<li><p><span dir="ltr"><code>~/</code></span>:
+اشاره به مسیر پوشه
+<span dir="ltr"><code>/home/&lt;USER&gt;/</code></span></p></li>
+</ul>
+<p>آدرس دهی نسبی:</p>
+<ul>
+<li><p><span dir="ltr"><code>./</code></span>:
+اشاره به پوشه‌ی که در آن قرار داریم.</p></li>
+<li><p><span dir="ltr"><code>../</code></span>:
+اشاره به پوشه بالایی.</p></li>
+</ul>
+</div>
+</div>
+<div id="دستورات-کاربردی" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> دستورات کاربردی</h2>
+<ul>
+<li>چاپ آدرس پوشه جاری:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="linux-and-unix-tutorial.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre></div>
+<ul>
+<li>رفتن به پوشه مورد نظر:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="linux-and-unix-tutorial.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/</span></code></pre></div>
+<ul>
+<li>چاپ لیست فایل‌ها و پوشه‌ها:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="linux-and-unix-tutorial.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb6-2"><a href="linux-and-unix-tutorial.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls ~/</span></code></pre></div>
+<ul>
+<li>چاپ توضیحات و آرگومان‌های دستورات:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="linux-and-unix-tutorial.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> man ls</span></code></pre></div>
+
+</div>
+<div id="کار-با-فایلها-و-پوشهها" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> کار با فایل‌ها و پوشه‌ها</h2>
+<ul>
+<li>ساخت پوشه جدید</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="linux-and-unix-tutorial.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir dirname</span></code></pre></div>
+<ul>
+<li>ساخت فایل جدید</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="linux-and-unix-tutorial.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch filename.txt</span></code></pre></div>
+<ul>
+<li>باز کردن فایل در ترمینال</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="linux-and-unix-tutorial.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nano filename.txt</span></code></pre></div>
+<ul>
+<li>انتقال فایل یا پوشه:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="linux-and-unix-tutorial.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv filename.txt dirname</span></code></pre></div>
+<ul>
+<li>کپی فایل یا بوشه:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="linux-and-unix-tutorial.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp dirname/filename.txt .</span></code></pre></div>
+<ul>
+<li>حذف فایل:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="linux-and-unix-tutorial.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm filename.txt</span></code></pre></div>
+<ul>
+<li>حذف پوشه خالی:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="linux-and-unix-tutorial.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rmdir dirname</span></code></pre></div>
+<ul>
+<li>حذف پوشه به همراه محتویات آن:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="linux-and-unix-tutorial.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> dirname</span></code></pre></div>
+
+</div>
+<div id="واژههای-کلیدی" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> واژه‌های کلیدی</h2>
+<ul>
+<li><p><strong>دستکاری (<span dir="ltr">Manipulation or Redirection</span>)</strong>:
+ویراش محتویات یا افزودن اطلاعات به آخر فایل‌ها</p></li>
+<li><p><strong>اسکریپت (Script)</strong>:
+فایل حاوی کد‌های برنامه نویسی</p></li>
+<li><p><strong>ورودی استاندارد (stdin)</strong>:
+اطلاعاتی که به خط فرمان می‌دهیم.</p></li>
+<li><p><strong>خروجی استاندارد (stdout)</strong>:
+اطلاعاتی که بدون خطا از خط فرمان می‌گیریم.</p></li>
+<li><p><strong>خطای استاندارد (stderr)</strong>:
+خطاهایی که در خط فرمان ایجاد می‌شود.</p></li>
+<li><p><strong>جریان‌ها (Streams)</strong>:
+اطلاعاتی که خط فرمان جریان دارد.</p></li>
+</ul>
+</div>
+<div id="خواندن-فایل" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> خواندن فایل</h2>
+<ul>
+<li>چاپ کردن متن داخل فایل:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="linux-and-unix-tutorial.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat filename.txt</span></code></pre></div>
+<ul>
+<li>چاپ کردن متن داخل فایل با قابلیت حرکت روی متن‌ها:</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="linux-and-unix-tutorial.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> less filename.txt</span></code></pre></div>
+<ul>
+<li>چاپ ده سطر اول فایل:</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="linux-and-unix-tutorial.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> head filename.txt</span></code></pre></div>
+<ul>
+<li>چاپ ده سطر آخر فایل:</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="linux-and-unix-tutorial.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail filename.txt</span></code></pre></div>
+<ul>
+<li>شمارش تعداد سطر و کلمات فایل:</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="linux-and-unix-tutorial.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wc filename.txt</span></code></pre></div>
+<ul>
+<li>نوشتن خروجی استاندارد در فایل جدید یا رونویسی روی فایل موجود:</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="linux-and-unix-tutorial.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> head filename.txt <span class="op">&gt;</span> headfile.txt</span></code></pre></div>
+<ul>
+<li>افزودن خروجی استاندارد در فایل موجود:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="linux-and-unix-tutorial.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail filename <span class="op">&gt;&gt;</span> headfile.txt</span></code></pre></div>
+<ul>
+<li>تبدیل خروجی استاندارد یک دستور به ورودی استاندارد دستور دیگر:</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="linux-and-unix-tutorial.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls ~/ <span class="kw">|</span> <span class="fu">tail</span></span></code></pre></div>
+<ul>
+<li>خطوط خروجی استاندارد را با توجه به حروف اولشان ردیف می‌کند:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="linux-and-unix-tutorial.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls ~/ <span class="kw">|</span> <span class="fu">sort</span></span></code></pre></div>
+
+</div>
+<div id="شل-و-متغیرهای-مسیرها" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> شل و متغیرهای مسیرها</h2>
+<ul>
+<li><p><strong>شل (Shells)</strong>:
+محیطی که عملیات‌هایی که به عنوان ورودی در آن تایپ می‌کنید به زبان ماشین تبدیل می‌کند.</p></li>
+<li><p>انواع شل:</p>
+<ul>
+<li><strong>bash</strong></li>
+<li><strong>tcsh</strong></li>
+<li><strong>zsh</strong></li>
+<li>…</li>
+</ul></li>
+<li><p><strong>نحو (Syntax)</strong></p></li>
+<li><p><strong>دستورات درون ساخت (<span dir="ltr">built-in commands</span>)</strong></p>
+<ul>
+<li><code>cd</code></li>
+<li><code>ls</code></li>
+<li><code>pwd</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="تعریف-متغییر" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> تعریف متغییر</h2>
+<ul>
+<li><p><strong>متغییر (Variable)</strong>
+اختصاص دادن یک مقدار (Value)
+به یک نام
+که این مقدار می‌تواند یک عدد (Number)
+یا یک رشته (String)
+باشد</p></li>
+<li><p>شل bash</p></li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="linux-and-unix-tutorial.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> x=3</span>
+<span id="cb25-2"><a href="linux-and-unix-tutorial.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="va">$x</span></span></code></pre></div>
+<pre><code>3</code></pre>
+<ul>
+<li>شل tcsh</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb27-1"><a href="linux-and-unix-tutorial.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&gt;</span> <span class="kw">set</span> x=3</span>
+<span id="cb27-2"><a href="linux-and-unix-tutorial.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&gt;</span> <span class="kw">echo</span> <span class="ot">$x</span></span></code></pre></div>
+<pre><code>3</code></pre>
+<ul>
+<li>چاپ نام شل</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="linux-and-unix-tutorial.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="va">$0</span></span></code></pre></div>
+<pre><code>bash</code></pre>
+<ul>
+<li><strong>زیرشل (subshell)</strong>:
+اگر درون یک شلی به شل دیگر برویم آن شل یک زیرشل از شل قبلی است.</li>
+</ul>
+<pre><code>bash
+└── tcsh
+    └── zsh</code></pre>
+<ul>
+<li><p><strong>محیط زیست جهانی (<span dir="ltr">World the environment</span>)</strong>
+اگر بخواهیم یک متغییر در تمام زیرشل‌ها معتبر باشد باید از روش‌های زیر استفاده کنیم.</p></li>
+<li><p>bash</p></li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="linux-and-unix-tutorial.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export x=3</span></code></pre></div>
+<ul>
+<li>tcsh</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode tcsh"><code class="sourceCode tcsh"><span id="cb33-1"><a href="linux-and-unix-tutorial.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&gt;</span> <span class="kw">setenv</span><span class="ot"> </span>x<span class="ot"> </span>3</span></code></pre></div>
+<ul>
+<li>خروج از یک شل</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="linux-and-unix-tutorial.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> exit</span></code></pre></div>
+<ul>
+<li><p>فایل <span dir="ltr"><code>.bashrc</code></span>:
+در این فایل دستورات اجرایی bash
+قرار دارد که به صورت خودکار هر زمان که یک شل ایجاد می‌شود اجرا می‌شود.</p></li>
+<li><p><strong>متغییر‌های مسیر (<span dir="ltr">PATH Variable</span>)</strong>:
+لیستی از مسیرهای پوشه‌های پرکاربرد است که دستورات اجرایی در آن‌ها هستند.
+که با <code>:</code>
+از هم جدا شده‌اند.
+اگر دستوری را در شل قرار دهید، شل برای یافتن فایل اجرایی این دستور تمام
+این مسیر‌ها را جستجو می‌کند.
+اگر فایل یافت نشد خطای استاندارد
+<span dir="ltr"><code>Command '&lt;COMMAND&gt;' not found</code></span>
+برمی‌گرداند.</p></li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="linux-and-unix-tutorial.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="va">$PATH</span></span></code></pre></div>
+<pre><code>/usr/local/fsl/bin:/home/mohsen/bin:/usr/local/bin:...</code></pre>
+
+</div>
+<div id="حلقه-for" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> حلقه <code>for</code></h2>
+<p>.. note::</p>
+<p>Topics covered: variables, for loops, zero padding, semicolons</p>
+<p>Commands covered: for, seq</p>
+</div>
+<div id="overview" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Overview</h2>
+<p>Neuroimaging analysis often involves running many commands, but with only a small alteration each time you run a new command. For example, you might have to analyze subject 1, then subject 2, subject 3, and so on. To save time, we will use something called a Loop - also known as a for-loop.</p>
+<p>Let’s illustrate what this is with a simple example. Let’s say that you need to print the numbers 1, 2, and 3. You could do this by typing “echo 1” and hitting return; then echo 2, and echo 3. This gets the job done, but you can see that this would quickly become tedious if your goal was to print dozens or hundreds of numbers.</p>
+<p>How can we make this easier? You probably noticed that each time we ran the command we changed the number after the echo command. A for-loop will automatically do this for you.</p>
+<p>Here is an example of a for-loop to print the numbers 1, 2, and 3:
+::</p>
+<p>for i in 1 2 3
+do echo $i
+done</p>
+<p>Or, doing it in one line, with each section separated by semicolons:</p>
+<p>::</p>
+<p>for i in 1 2 3; do echo $i; done</p>
+<p>The for-loop has three sections, separated by semicolons. The first section is the Declaration: it begins by assigning the first item after “in” to the variable “i”; in this case, it would assign the value “1” to “i.” The numbers after “in” are called the “List.” The next section is the Body, which runs the commands written after “do,” replacing the variable with whichever value is currently assigned to the variable - for the first loop, this will be the number “1.” Since items remain in the list, the loop goes back to the declaration and assigns the next number in the list to the variable i; in this case, the number “2.” Then the body is run, and the process repeats until the end of the list is reached. The last section, called the End, contains only the word “done,” meaning to exit the loop after all of the items in the list have been run through the Body of the loop.</p>
+<p>You can add more commands to the Body section, if they are separated with a semicolon. For example, we could change the loop to:</p>
+<p>::</p>
+<p>for i in 1 2 3; do echo $i; echo “You just printed the number $i”; done</p>
+<p>And this is what the output would look like:</p>
+<p>::</p>
+<p>1
+You just printed the number 1
+2
+You just printed the number 2
+3
+You just printed the number 3</p>
+<p>Looking ahead, eventually we’ll use for-loops to analyze twenty-six subjects, with directories named sub-01, sub-02, all the way to sub-26. We will use the loop to navigate into each directory and then run a script, but for now, imagine that we simply wanted to print the name of each directory. Something like this would work, but would also be tedious to write out:</p>
+<p>::</p>
+<p>for i in sub-01 sub-02 … sub-26; do echo $i; done</p>
+<p>This also quickly becomes impractical with large numbers. You can make this command more concise by using the seq command, which prints every number in a range that you specify; for example, seq 1 10 prints the numbers one through ten. We can include it in our for-loop using backticks, in which the command within the backticks is executed first and expanded:</p>
+<p>::</p>
+<p>for i in <code>seq 1 26</code>; do echo “sub-$i”; done</p>
+<p>In this case, the first run of the loop would assign 1 to i, print sub-1, and then go through the rest of the items in the list.</p>
+<p>This gets us closer to our goal, but it still isn’t exactly what we want. Notice that the subject names each have two integers, such as 01, 02, 03, and so on, which ensures that each subject’s name is the same length; it also keeps them in order when they are listed with the ls command. This is called zero padding, and we can implement it in our for-loop with the -w option in seq, which looks like this:</p>
+<p>::</p>
+<p>for i in <code>seq -w 1 26</code>; do echo “sub-$i”; done</p>
+<p>This sets each number in this range to have a width of two integers; if it’s a number less than ten, for example, it is zero-padded with one zero to the left of the number. This will be important later on when we use these loops to automate analyses over all of our subjects.</p>
+<hr />
+<p>Exercises
+**********</p>
+<p>Today we covered the basics of for loops; later on, you’ll learn how to use them in more sophisticated contexts, such as automating the analysis of an entire dataset. But no matter how complicated the analysis, every for-loop is built on the fundamentals you learned today. Try these exercises to develop your understanding:</p>
+<ol style="list-style-type: decimal">
+<li><p>Type the following line of code: <code>for i in `ls`; do echo $i; done</code>. Before you press Enter, think about what it will return. See if the output matches your prediction.</p></li>
+<li><p>Write a for-loop to do the following for the numbers 1 through 3: Print the first number in the list, and then print the present working directory. Then, go up one directory. Repeat for all of the other numbers in the list.</p></li>
+<li><p>Look up the syntax of a for-loop with tcsh, and use it to redo the examples above.</p></li>
+</ol>
+<hr />
+<p>Video
+**********</p>
+<p>Click <code>here &lt;https://tinyurl.com/y6297v4e&gt;</code>__ for an example of how to code for-loops.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": null
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
