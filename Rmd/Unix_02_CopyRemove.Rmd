@@ -1,0 +1,50 @@
+کار با فایل‌ها و پوشه‌ها
+------------------------
+
+- ساخت پوشه جدید
+
+```bash
+$ mkdir dirname
+```
+
+- ساخت فایل جدید
+
+```bash
+$ touch filename.txt
+```
+
+- باز کردن فایل در ترمینال
+
+```bash
+$ nano filename.txt
+```
+
+- انتقال فایل یا پوشه:
+
+```bash
+$ mv filename.txt dirname
+```
+
+- کپی فایل یا بوشه:
+
+```bash
+$ cp dirname/filename.txt .
+```
+
+- حذف فایل:
+
+```bash
+$ rm filename.txt
+```
+
+- حذف پوشه خالی:
+
+```bash
+$ rmdir dirname
+```
+
+- حذف پوشه به همراه محتویات آن:
+
+```bash
+$ rm -rf dirname
+```
