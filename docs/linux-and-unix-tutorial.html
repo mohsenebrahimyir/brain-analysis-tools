@@ -181,7 +181,6 @@ div.csl-indent {
 <li class="chapter" data-level="1.6" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#شل-و-متغیرهای-مسیرها"><i class="fa fa-check"></i><b>1.6</b> شل و متغیرهای مسیرها</a></li>
 <li class="chapter" data-level="1.7" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#تعریف-متغییر"><i class="fa fa-check"></i><b>1.7</b> تعریف متغییر</a></li>
 <li class="chapter" data-level="1.8" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#حلقه-for"><i class="fa fa-check"></i><b>1.8</b> حلقه <code>for</code></a></li>
-<li class="chapter" data-level="1.9" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#overview"><i class="fa fa-check"></i><b>1.9</b> Overview</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>منابع</a></li>
 <li class="divider"></li>
@@ -480,59 +479,149 @@ div.csl-indent {
 </div>
 <div id="حلقه-for" class="section level2" number="1.8">
 <h2><span class="header-section-number">1.8</span> حلقه <code>for</code></h2>
-<p>.. note::</p>
-<p>Topics covered: variables, for loops, zero padding, semicolons</p>
-<p>Commands covered: for, seq</p>
-</div>
-<div id="overview" class="section level2" number="1.9">
-<h2><span class="header-section-number">1.9</span> Overview</h2>
-<p>Neuroimaging analysis often involves running many commands, but with only a small alteration each time you run a new command. For example, you might have to analyze subject 1, then subject 2, subject 3, and so on. To save time, we will use something called a Loop - also known as a for-loop.</p>
-<p>Let’s illustrate what this is with a simple example. Let’s say that you need to print the numbers 1, 2, and 3. You could do this by typing “echo 1” and hitting return; then echo 2, and echo 3. This gets the job done, but you can see that this would quickly become tedious if your goal was to print dozens or hundreds of numbers.</p>
-<p>How can we make this easier? You probably noticed that each time we ran the command we changed the number after the echo command. A for-loop will automatically do this for you.</p>
-<p>Here is an example of a for-loop to print the numbers 1, 2, and 3:
-::</p>
-<p>for i in 1 2 3
-do echo $i
-done</p>
-<p>Or, doing it in one line, with each section separated by semicolons:</p>
-<p>::</p>
-<p>for i in 1 2 3; do echo $i; done</p>
-<p>The for-loop has three sections, separated by semicolons. The first section is the Declaration: it begins by assigning the first item after “in” to the variable “i”; in this case, it would assign the value “1” to “i.” The numbers after “in” are called the “List.” The next section is the Body, which runs the commands written after “do,” replacing the variable with whichever value is currently assigned to the variable - for the first loop, this will be the number “1.” Since items remain in the list, the loop goes back to the declaration and assigns the next number in the list to the variable i; in this case, the number “2.” Then the body is run, and the process repeats until the end of the list is reached. The last section, called the End, contains only the word “done,” meaning to exit the loop after all of the items in the list have been run through the Body of the loop.</p>
-<p>You can add more commands to the Body section, if they are separated with a semicolon. For example, we could change the loop to:</p>
-<p>::</p>
-<p>for i in 1 2 3; do echo $i; echo “You just printed the number $i”; done</p>
-<p>And this is what the output would look like:</p>
-<p>::</p>
-<p>1
-You just printed the number 1
-2
-You just printed the number 2
-3
-You just printed the number 3</p>
-<p>Looking ahead, eventually we’ll use for-loops to analyze twenty-six subjects, with directories named sub-01, sub-02, all the way to sub-26. We will use the loop to navigate into each directory and then run a script, but for now, imagine that we simply wanted to print the name of each directory. Something like this would work, but would also be tedious to write out:</p>
-<p>::</p>
-<p>for i in sub-01 sub-02 … sub-26; do echo $i; done</p>
-<p>This also quickly becomes impractical with large numbers. You can make this command more concise by using the seq command, which prints every number in a range that you specify; for example, seq 1 10 prints the numbers one through ten. We can include it in our for-loop using backticks, in which the command within the backticks is executed first and expanded:</p>
-<p>::</p>
-<p>for i in <code>seq 1 26</code>; do echo “sub-$i”; done</p>
-<p>In this case, the first run of the loop would assign 1 to i, print sub-1, and then go through the rest of the items in the list.</p>
-<p>This gets us closer to our goal, but it still isn’t exactly what we want. Notice that the subject names each have two integers, such as 01, 02, 03, and so on, which ensures that each subject’s name is the same length; it also keeps them in order when they are listed with the ls command. This is called zero padding, and we can implement it in our for-loop with the -w option in seq, which looks like this:</p>
-<p>::</p>
-<p>for i in <code>seq -w 1 26</code>; do echo “sub-$i”; done</p>
-<p>This sets each number in this range to have a width of two integers; if it’s a number less than ten, for example, it is zero-padded with one zero to the left of the number. This will be important later on when we use these loops to automate analyses over all of our subjects.</p>
-<hr />
-<p>Exercises
-**********</p>
-<p>Today we covered the basics of for loops; later on, you’ll learn how to use them in more sophisticated contexts, such as automating the analysis of an entire dataset. But no matter how complicated the analysis, every for-loop is built on the fundamentals you learned today. Try these exercises to develop your understanding:</p>
+<p>خیلی از کارهایی که در عمل انجام می‌شود شامل کارهایی
+کوچک تکراری است که به طور متناوب برای موارد مختلف اجرا
+می‌شود.</p>
+<p>اینگونه کار‌ها را به استفاده از حلقه‌ها اجرا می‌کنند.</p>
+<ul>
+<li><strong>حلقه for</strong></li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="linux-and-unix-tutorial.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> 1 2 3</span>
+<span id="cb37-2"><a href="linux-and-unix-tutorial.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span></span>
+<span id="cb37-3"><a href="linux-and-unix-tutorial.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<pre><code>## 1
+## 2
+## 3</code></pre>
+<p>می‌تواینم همین کد را تک خطی نیز بنویسیم</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="linux-and-unix-tutorial.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>## 1
+## 2
+## 3</code></pre>
+<p>حلقه <code>for</code>
+سه بخش دارد که اگر یک خطی بنویسیم باید آن‌ها را با
+<code>;</code>
+جدا کنیم.</p>
 <ol style="list-style-type: decimal">
-<li><p>Type the following line of code: <code>for i in `ls`; do echo $i; done</code>. Before you press Enter, think about what it will return. See if the output matches your prediction.</p></li>
-<li><p>Write a for-loop to do the following for the numbers 1 through 3: Print the first number in the list, and then print the present working directory. Then, go up one directory. Repeat for all of the other numbers in the list.</p></li>
-<li><p>Look up the syntax of a for-loop with tcsh, and use it to redo the examples above.</p></li>
+<li><strong>اعلامیه (Declaration)</strong>:</li>
 </ol>
-<hr />
-<p>Video
-**********</p>
-<p>Click <code>here &lt;https://tinyurl.com/y6297v4e&gt;</code>__ for an example of how to code for-loops.</p>
+<p>در بخش
+<span dir="ltr"><code>for i in 1 2 3;</code></span>
+به ترتیب موارد بعد از
+<code>in</code>
+را به متغییر
+<code>i</code>
+اختصاص می‌دهد.
+شماره‌هایی که بعد از
+<code>in</code>
+آمده‌اند را
+<strong>لیست (list)</strong>
+می‌نامند.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>بدنه (Body)</strong>:</li>
+</ol>
+<p>در بخش
+<span dir="ltr"><code>do echo $i;</code></span>
+هر دستوری که بعد از
+<code>do</code>
+نوشته شود برای هر مورد می‌تواند تکرار شود.
+برای مثال اینجا به ترتیب هر شماره با تابع
+<code>echo</code>
+چاپ می‌شود.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>اتمام (End)</strong>:</li>
+</ol>
+<p>در این بخش
+<code>done</code>
+تنها شامل یک کلمه است که به معنای خارج شدن از حلقه بعد
+از اجرا برای همه موارد درون لیست است.</p>
+<p>می‌توان بخش‌های بیشتری را با گذاشتن
+<code>;</code>
+انتهای آن به بدنه اضافه نمود.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="linux-and-unix-tutorial.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="bu">echo</span> “You just printed the number <span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>## 1
+## “You just printed the number 1”
+## 2
+## “You just printed the number 2”
+## 3
+## “You just printed the number 3”</code></pre>
+<p>مثلا اگر ما تعدادی اسامی به صورت
+<code>sub-01</code>
+داشته باشیم می‌توانیم به زیر برای هر یک یه حلقه ایجاد کنیم</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="linux-and-unix-tutorial.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> sub-01 sub-02 … sub-26<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>## sub-01
+## sub-02
+## …
+## sub-26</code></pre>
+<p>اما یک روش ساده تر برای نوشتن کد این است که
+از دستور
+<code>seq 1 10</code>
+برای ایجاد لیستی از اعداد یک تا ده استفاده کنیم تا
+از نوشتن کد تکراری جلوگیری کنیم.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="linux-and-unix-tutorial.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>## “sub-1”
+## “sub-2”
+## “sub-3”
+## “sub-4”
+## “sub-5”
+## “sub-6”
+## “sub-7”
+## “sub-8”
+## “sub-9”
+## “sub-10”
+## “sub-11”
+## “sub-12”
+## “sub-13”
+## “sub-14”
+## “sub-15”
+## “sub-16”
+## “sub-17”
+## “sub-18”
+## “sub-19”
+## “sub-20”
+## “sub-21”
+## “sub-22”
+## “sub-23”
+## “sub-24”
+## “sub-25”
+## “sub-26”</code></pre>
+<p>اگر بخواهیم حتما اعداد به صورت دورقمی چاپ شوند
+یعنی قبل از اعداد یک رقمی یه رقم صفر نیز باشد می‌توانیم
+به صورت زیر نیز عمل کنیم.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="linux-and-unix-tutorial.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>## “sub-01”
+## “sub-02”
+## “sub-03”
+## “sub-04”
+## “sub-05”
+## “sub-06”
+## “sub-07”
+## “sub-08”
+## “sub-09”
+## “sub-10”
+## “sub-11”
+## “sub-12”
+## “sub-13”
+## “sub-14”
+## “sub-15”
+## “sub-16”
+## “sub-17”
+## “sub-18”
+## “sub-19”
+## “sub-20”
+## “sub-21”
+## “sub-22”
+## “sub-23”
+## “sub-24”
+## “sub-25”
+## “sub-26”</code></pre>
+<p>با استفاده از دستور
+<code>ls</code>
+می‌توانیم بر روی لیستی از فایل‌های درون یک پوشه
+(مثلا پوشه خانه
+<span dir="ltr"><code>~/</code></span>
+)
+حلقه اجرا کنیم.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="linux-and-unix-tutorial.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 
 </div>
 </div>

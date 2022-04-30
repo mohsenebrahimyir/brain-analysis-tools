@@ -8,4 +8,3 @@ linux-and-unix-tutorial
 شل-و-متغیرهای-مسیرها
 تعریف-متغییر
 حلقه-for
-overview
