@@ -11,7 +11,7 @@ favicon:
 cover-image: 
   - "./img/cover.jpg"
 site: bookdown::bookdown_site
-url: https://mohsenebrahimy.ir/book/brain-analysis-tools/
+url: https://mohsenebrahimyir.github.io/brain-analysis-tools/
 classoption: openany
 bibliography: 
   - bib/book.bib
@@ -52,7 +52,7 @@ mohsenebrahimy.ir@gmail.com
 
 ::: {.center data-latex=""}
 <center>
-[<https://mohsenebrahimy.ir/book/brain-analysis-tools/>]{dir=ltr}
+[<https://mohsenebrahimyir.github.io/brain-analysis-tools/>]{dir=ltr}
 </center>
 :::
 
