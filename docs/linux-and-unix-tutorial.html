@@ -486,17 +486,17 @@ div.csl-indent {
 <ul>
 <li><strong>حلقه for</strong></li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="linux-and-unix-tutorial.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> 1 2 3</span>
-<span id="cb37-2"><a href="linux-and-unix-tutorial.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span></span>
-<span id="cb37-3"><a href="linux-and-unix-tutorial.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
-<pre><code>## 1
-## 2
-## 3</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="linux-and-unix-tutorial.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in 1 2 3</span>
+<span id="cb37-2"><a href="linux-and-unix-tutorial.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> do <span class="bu">echo</span> <span class="va">$i</span></span>
+<span id="cb37-3"><a href="linux-and-unix-tutorial.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre></div>
+<pre><code>1
+2
+3</code></pre>
 <p>می‌تواینم همین کد را تک خطی نیز بنویسیم</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="linux-and-unix-tutorial.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
-<pre><code>## 1
-## 2
-## 3</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="linux-and-unix-tutorial.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in 1 2 3<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>1
+2
+3</code></pre>
 <p>حلقه <code>for</code>
 سه بخش دارد که اگر یک خطی بنویسیم باید آن‌ها را با
 <code>;</code>
@@ -537,21 +537,21 @@ div.csl-indent {
 <p>می‌توان بخش‌های بیشتری را با گذاشتن
 <code>;</code>
 انتهای آن به بدنه اضافه نمود.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="linux-and-unix-tutorial.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="bu">echo</span> “You just printed the number <span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
-<pre><code>## 1
-## “You just printed the number 1”
-## 2
-## “You just printed the number 2”
-## 3
-## “You just printed the number 3”</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="linux-and-unix-tutorial.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in 1 2 3<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="bu">echo</span> “You just printed the number <span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>1
+“You just printed the number 1”
+2
+“You just printed the number 2”
+3
+“You just printed the number 3”</code></pre>
 <p>مثلا اگر ما تعدادی اسامی به صورت
 <code>sub-01</code>
 داشته باشیم می‌توانیم به زیر برای هر یک یه حلقه ایجاد کنیم</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="linux-and-unix-tutorial.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> sub-01 sub-02 … sub-26<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
-<pre><code>## sub-01
-## sub-02
-## …
-## sub-26</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="linux-and-unix-tutorial.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in sub-01 sub-02 … sub-26<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>sub-01
+sub-02
+…
+sub-26</code></pre>
 <p>اما یک روش ساده تر برای نوشتن کد این است که
 از دستور
 <code>seq 1 10</code>
@@ -584,10 +584,14 @@ div.csl-indent {
 ## “sub-24”
 ## “sub-25”
 ## “sub-26”</code></pre>
+<pre><code>sub-1
+sub-2
+…
+sub-26</code></pre>
 <p>اگر بخواهیم حتما اعداد به صورت دورقمی چاپ شوند
 یعنی قبل از اعداد یک رقمی یه رقم صفر نیز باشد می‌توانیم
 به صورت زیر نیز عمل کنیم.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="linux-and-unix-tutorial.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="linux-and-unix-tutorial.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 <pre><code>## “sub-01”
 ## “sub-02”
 ## “sub-03”
@@ -614,6 +618,10 @@ div.csl-indent {
 ## “sub-24”
 ## “sub-25”
 ## “sub-26”</code></pre>
+<pre><code>sub-01
+sub-02
+…
+sub-26</code></pre>
 <p>با استفاده از دستور
 <code>ls</code>
 می‌توانیم بر روی لیستی از فایل‌های درون یک پوشه
@@ -621,7 +629,12 @@ div.csl-indent {
 <span dir="ltr"><code>~/</code></span>
 )
 حلقه اجرا کنیم.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="linux-and-unix-tutorial.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="linux-and-unix-tutorial.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<pre><code>bin
+Desktop
+Documents
+Downloads
+…</code></pre>
 
 </div>
 </div>

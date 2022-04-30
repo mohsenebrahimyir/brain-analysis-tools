@@ -9,16 +9,26 @@
 
 - **حلقه for**
 
-```{bash echo=TRUE}
-for i in 1 2 3
-do echo $i
-done
+```bash
+$ for i in 1 2 3
+> do echo $i
+> done
+```
+```
+1
+2
+3
 ```
 
 می‌تواینم همین کد را تک خطی نیز بنویسیم
 
-```{bash echo=TRUE}
-for i in 1 2 3; do echo $i; done
+```bash
+$ for i in 1 2 3; do echo $i; done
+```
+```
+1
+2
+3
 ```
 
 حلقه `for` 
@@ -64,17 +74,30 @@ for i in 1 2 3; do echo $i; done
 `;`
 انتهای آن به بدنه اضافه نمود.
 
-```{bash echo=TRUE}
-for i in 1 2 3; do echo $i; echo “You just printed the number $i”; done
+```bash
+$ for i in 1 2 3; do echo $i; echo “You just printed the number $i”; done
 ```
-
+```
+1
+“You just printed the number 1”
+2
+“You just printed the number 2”
+3
+“You just printed the number 3”
+```
 
 مثلا اگر ما تعدادی اسامی به صورت 
 `sub-01`
 داشته باشیم می‌توانیم به زیر برای هر یک یه حلقه ایجاد کنیم
 
-```{bash echo=TRUE}
-for i in sub-01 sub-02 … sub-26; do echo $i; done
+```bash
+$ for i in sub-01 sub-02 … sub-26; do echo $i; done
+```
+```
+sub-01
+sub-02
+…
+sub-26
 ```
 
 اما یک روش ساده تر برای نوشتن کد این است که 
@@ -86,6 +109,12 @@ for i in sub-01 sub-02 … sub-26; do echo $i; done
 ```{bash echo=TRUE}
 for i in `seq 1 26`; do echo “sub-$i”; done
 ```
+```
+sub-1
+sub-2
+…
+sub-26
+```
 
 اگر بخواهیم حتما اعداد به صورت دورقمی چاپ شوند
 یعنی قبل از اعداد یک رقمی یه رقم صفر نیز باشد می‌توانیم
@@ -93,6 +122,12 @@ for i in `seq 1 26`; do echo “sub-$i”; done
 
 ```{bash echo=TRUE}
 for i in `seq -w 1 26`; do echo “sub-$i”; done
+```
+```
+sub-01
+sub-02
+…
+sub-26
 ```
 
 با استفاده از دستور
@@ -105,4 +140,11 @@ for i in `seq -w 1 26`; do echo “sub-$i”; done
 
 ```bash
 for i in `ls ~/`; do echo $i; done
+```
+```
+bin
+Desktop
+Documents
+Downloads
+…
 ```
