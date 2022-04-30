@@ -181,6 +181,16 @@ div.csl-indent {
 <li class="chapter" data-level="1.6" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#شل-و-متغیرهای-مسیرها"><i class="fa fa-check"></i><b>1.6</b> شل و متغیرهای مسیرها</a></li>
 <li class="chapter" data-level="1.7" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#تعریف-متغییر"><i class="fa fa-check"></i><b>1.7</b> تعریف متغییر</a></li>
 <li class="chapter" data-level="1.8" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#حلقه-for"><i class="fa fa-check"></i><b>1.8</b> حلقه <code>for</code></a></li>
+<li class="chapter" data-level="1.9" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#گزاره-شرطی"><i class="fa fa-check"></i><b>1.9</b> گزاره شرطی</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#گزاره-شرطی-conditional-statements"><i class="fa fa-check"></i><b>1.9.1</b> <strong>گزاره شرطی <span dir="ltr">Conditional Statements</span></strong>:</a></li>
+<li class="chapter" data-level="1.9.2" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#گزاره-اگر"><i class="fa fa-check"></i><b>1.9.2</b> گزاره اگر …</a></li>
+<li class="chapter" data-level="1.9.3" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#گزاره-اگر-و-دیگر"><i class="fa fa-check"></i><b>1.9.3</b> گزاره اگر و دیگر</a></li>
+<li class="chapter" data-level="1.9.4" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#گزاره-شرطی-اگر-و-دیگر-اگر-و-دیگر"><i class="fa fa-check"></i><b>1.9.4</b> گزاره شرطی «اگر» و «دیگر اگر» و «دیگر»</a></li>
+<li class="chapter" data-level="1.9.5" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#عملگر-و"><i class="fa fa-check"></i><b>1.9.5</b> عملگر «و»</a></li>
+<li class="chapter" data-level="1.9.6" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#عملگر-یا"><i class="fa fa-check"></i><b>1.9.6</b> عملگر «یا»</a></li>
+<li class="chapter" data-level="1.9.7" data-path="linux-and-unix-tutorial.html"><a href="linux-and-unix-tutorial.html#آزمونها"><i class="fa fa-check"></i><b>1.9.7</b> آزمون‌ها</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>منابع</a></li>
 <li class="divider"></li>
@@ -557,7 +567,7 @@ sub-26</code></pre>
 <code>seq 1 10</code>
 برای ایجاد لیستی از اعداد یک تا ده استفاده کنیم تا
 از نوشتن کد تکراری جلوگیری کنیم.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="linux-and-unix-tutorial.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="linux-and-unix-tutorial.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 <pre><code>sub-1
 sub-2
 …
@@ -565,7 +575,7 @@ sub-26</code></pre>
 <p>اگر بخواهیم حتما اعداد به صورت دورقمی چاپ شوند
 یعنی قبل از اعداد یک رقمی یه رقم صفر نیز باشد می‌توانیم
 به صورت زیر نیز عمل کنیم.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="linux-and-unix-tutorial.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="linux-and-unix-tutorial.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 <pre><code>sub-01
 sub-02
 …
@@ -577,13 +587,231 @@ sub-26</code></pre>
 <span dir="ltr"><code>~/</code></span>
 )
 حلقه اجرا کنیم.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="linux-and-unix-tutorial.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="linux-and-unix-tutorial.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 <pre><code>bin
 Desktop
 Documents
 Downloads
 …</code></pre>
 
+</div>
+<div id="گزاره-شرطی" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> گزاره شرطی</h2>
+<div id="گزاره-شرطی-conditional-statements" class="section level3" number="1.9.1">
+<h3><span class="header-section-number">1.9.1</span> <strong>گزاره شرطی <span dir="ltr">Conditional Statements</span></strong>:</h3>
+<p>گزاره شرطی را
+<strong><span dir="ltr"><code>if-else</code></span></strong>
+نیز می‌نامند:</p>
+<ul>
+<li><p>اگر گزاره درست
+<strong>(<code>true</code>)</strong>
+باشد کاری انجام شود.</p></li>
+<li><p>اگر گزاره غلط
+<strong>(<code>false</code>)</strong>
+باشد کار دیگری انجام شود.</p></li>
+</ul>
+</div>
+<div id="گزاره-اگر" class="section level3" number="1.9.2">
+<h3><span class="header-section-number">1.9.2</span> گزاره اگر …</h3>
+<p>اگر درست بود پس فلان کار را انجام بده.
+برای مثال در کد زیر اگر سن بزرگتر از ده بود
+عبارت
+<code>The age is greater than 10.</code>
+را چاپ کن:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="linux-and-unix-tutorial.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> age=20</span>
+<span id="cb51-2"><a href="linux-and-unix-tutorial.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="linux-and-unix-tutorial.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> if [[ <span class="va">$age</span> <span class="at">-gt</span> 10 ]]</span>
+<span id="cb51-4"><a href="linux-and-unix-tutorial.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> then</span>
+<span id="cb51-5"><a href="linux-and-unix-tutorial.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The age is greater than 10.&quot;</span></span>
+<span id="cb51-6"><a href="linux-and-unix-tutorial.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> fi</span></code></pre></div>
+<pre><code>The age is greater than 10.</code></pre>
+<p>مثل حقله <code>for</code>
+گزاره <code>if-else</code>
+هم سه بخش دارد.</p>
+<ol style="list-style-type: decimal">
+<li><strong>گزاره شرطی <span dir="ltr">Conditional Statement</span></strong>:</li>
+</ol>
+<p>اولین بخش با کلمه کلیدی
+<code>if</code>
+شروع می‌شود. و پس از چک کردن شرط
+که در بین براکت
+(<span dir="ltr"><code>[[]]</code></span>)
+نوشته می‌شود، در صورت درست بودن شرط به بخش بعد می‌رود.</p>
+<p>در گزاره
+<code>$age -gt 10</code>
+بیشتر بودن سن را چک می‌کند.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>بدنه (Body)</strong>:</li>
+</ol>
+<p>درصوت درست بودن بخش اول دستورات این بخش اجرا می‌شود که با
+کلمه کلیدی
+<code>then</code>
+شروع می‌شود.
+که کاری که مد نظرمان هست را بعد آن می‌نویسیم.
+که می‌تواند شامل دستورات زیادی باشد.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>اتمام End</strong>:</li>
+</ol>
+<p>در این بخش فقط کلمه کلیدی
+<code>fi</code>
+را می‌نویسیم که بیانگر اتمام گزاره شرطی است.</p>
+</div>
+<div id="گزاره-اگر-و-دیگر" class="section level3" number="1.9.3">
+<h3><span class="header-section-number">1.9.3</span> گزاره اگر و دیگر</h3>
+<p>در این گزاره یک حالت دیگر
+<code>else</code>
+هم وجود دارد که اگر شرط
+<code>if</code>
+غلط بود دستورات دستورات دیگری اجرا می‌شود.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="linux-and-unix-tutorial.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> age=8</span>
+<span id="cb53-2"><a href="linux-and-unix-tutorial.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="linux-and-unix-tutorial.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> if [[ <span class="va">$age</span> <span class="at">-gt</span> 10 ]]</span>
+<span id="cb53-4"><a href="linux-and-unix-tutorial.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> then</span>
+<span id="cb53-5"><a href="linux-and-unix-tutorial.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The age is greater than 10.&quot;</span></span>
+<span id="cb53-6"><a href="linux-and-unix-tutorial.html#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> else</span>
+<span id="cb53-7"><a href="linux-and-unix-tutorial.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is equal or less than 10.&quot;</span></span>
+<span id="cb53-8"><a href="linux-and-unix-tutorial.html#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> fi</span></code></pre></div>
+<pre><code>The variable is equal or less than 10.</code></pre>
+</div>
+<div id="گزاره-شرطی-اگر-و-دیگر-اگر-و-دیگر" class="section level3" number="1.9.4">
+<h3><span class="header-section-number">1.9.4</span> گزاره شرطی «اگر» و «دیگر اگر» و «دیگر»</h3>
+<p>در این گزاره یک حال دیگر اگر
+<code>elif</code>
+وجود دارد که اگر شرط اول درست نبود
+گزاره شرطی دیگری را بررسی می‌کند.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="linux-and-unix-tutorial.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> age=10</span>
+<span id="cb55-2"><a href="linux-and-unix-tutorial.html#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="linux-and-unix-tutorial.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> if [[ <span class="va">$VAR</span> <span class="at">-gt</span> 10 ]]</span>
+<span id="cb55-4"><a href="linux-and-unix-tutorial.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> then</span>
+<span id="cb55-5"><a href="linux-and-unix-tutorial.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is greater than 10.&quot;</span></span>
+<span id="cb55-6"><a href="linux-and-unix-tutorial.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> elif <span class="kw">[[</span> <span class="va">$VAR</span> <span class="ot">-eq</span> 10 <span class="kw">]]</span></span>
+<span id="cb55-7"><a href="linux-and-unix-tutorial.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> then</span>
+<span id="cb55-8"><a href="linux-and-unix-tutorial.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is equal to 10.&quot;</span></span>
+<span id="cb55-9"><a href="linux-and-unix-tutorial.html#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> else</span>
+<span id="cb55-10"><a href="linux-and-unix-tutorial.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is less than 10.&quot;</span></span>
+<span id="cb55-11"><a href="linux-and-unix-tutorial.html#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> fi</span></code></pre></div>
+<pre><code>The variable is equal to 10.</code></pre>
+</div>
+<div id="عملگر-و" class="section level3" number="1.9.5">
+<h3><span class="header-section-number">1.9.5</span> عملگر «و»</h3>
+<p>با عملگر «و»
+<code>&amp;&amp;</code>
+می‌توان دو شرط را باهم در یک گزاره بررسی کرد که اگر
+هر دو شرایط درست بودند دستورات در بدنه اجرا شود.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="linux-and-unix-tutorial.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> age=20</span>
+<span id="cb57-2"><a href="linux-and-unix-tutorial.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="linux-and-unix-tutorial.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> if [[ <span class="va">$VAR</span> <span class="at">-gt</span> 10 <span class="kw">&amp;&amp;</span> <span class="va">$VAR</span> <span class="at">-lt</span> 30 ]]</span>
+<span id="cb57-4"><a href="linux-and-unix-tutorial.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> then</span>
+<span id="cb57-5"><a href="linux-and-unix-tutorial.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is in the range of 10 to 30.&quot;</span></span>
+<span id="cb57-6"><a href="linux-and-unix-tutorial.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> else</span>
+<span id="cb57-7"><a href="linux-and-unix-tutorial.html#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is not between 10 and 30.&quot;</span></span>
+<span id="cb57-8"><a href="linux-and-unix-tutorial.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> fi</span></code></pre></div>
+<pre><code>The variable is in the range of 10 to 30.</code></pre>
+</div>
+<div id="عملگر-یا" class="section level3" number="1.9.6">
+<h3><span class="header-section-number">1.9.6</span> عملگر «یا»</h3>
+<p>با استفاده از عملگر «یا»
+<code>||</code>
+می‌توانیم دو شرط را در یک گزاره بررسی کنیم که اگر یکی
+از آن‌ها برقرار بود دستورات بدنه اجرا شود.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb59-1"><a href="linux-and-unix-tutorial.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> age=50</span>
+<span id="cb59-2"><a href="linux-and-unix-tutorial.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="linux-and-unix-tutorial.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> if [[ <span class="va">$VAR</span> <span class="at">-lt</span> 10 <span class="kw">||</span> <span class="va">$VAR</span> <span class="at">-gt</span> 30 ]]</span>
+<span id="cb59-4"><a href="linux-and-unix-tutorial.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> then</span>
+<span id="cb59-5"><a href="linux-and-unix-tutorial.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is not between 10 and 30.&quot;</span></span>
+<span id="cb59-6"><a href="linux-and-unix-tutorial.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> else</span>
+<span id="cb59-7"><a href="linux-and-unix-tutorial.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>   echo <span class="st">&quot;The variable is in the range of 10 to 30.&quot;</span></span>
+<span id="cb59-8"><a href="linux-and-unix-tutorial.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> fi</span></code></pre></div>
+<pre><code>The variable is not between 10 and 30.</code></pre>
+</div>
+<div id="آزمونها" class="section level3" number="1.9.7">
+<h3><span class="header-section-number">1.9.7</span> آزمون‌ها</h3>
+<ul>
+<li><p><span dir="ltr"><code>-n VAR</code></span>:
+اگر اندازه
+<code>VAR</code>
+بیشتر از صفر باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-z VAR</code></span>:
+اگر
+<code>VAR</code>
+خالی باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>STR1 == STR2</code></span>:
+اگر رشته
+<code>STR1</code>
+با رشته
+<code>STR2</code>
+مساوی باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>STR1 != STR2</code></span>:
+اگر رشته
+<code>STR1</code>
+با رشته
+<code>STR2</code>
+مساوی نباشد درست است.</p></li>
+<li><p><span dir="ltr"><code>INT1 -eq INT2</code></span>:
+اگر عدد
+<code>INT1</code>
+با عدد
+<code>INT</code>
+مساوی باشند درست است.</p></li>
+<li><p><span dir="ltr"><code>INT1 -gt INT2</code></span>:
+اگر عدد
+<code>INT1</code>
+از عدد
+<code>INT2</code>
+بزرگتر باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>INT1 -lt INT2</code></span>:
+اگر عدد
+<code>INT1</code>
+از عدد
+<code>INT2</code>
+کوچکتر باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>INT1 -ge INT2</code></span>:
+اگر عدد
+<code>INT1</code>
+از عدد
+<code>INT2</code>
+بزرگتر یا مساوی باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>INT1 -le INT2</code></span>:
+اگر عدد
+<code>INT1</code>
+از عدد
+<code>INT2</code>
+کوچکتر یا مساوی باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-h FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و یک پیوند نمادین باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-r FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و قابل خواندن باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-w FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و قابل نوشتن باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-x FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و قابل اجرا باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-d FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و یک پوشه باشد درست است.</p></li>
+<li><p><span dir="ltr"><code>-e FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و فایل باشد .
+(بدون در نظر گرفتن نوع آن)
+درست است.</p></li>
+<li><p><span dir="ltr"><code>-f FILE</code></span>:
+اگر
+<code>FILE</code>
+وجود داشته و یک فایل متنی باشد
+(مثلا پوشه یا دستگاه نباشد.)
+درست است.</p></li>
+</ul>
+
+</div>
 </div>
 </div>
             </section>
