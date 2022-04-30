@@ -558,32 +558,6 @@ sub-26</code></pre>
 برای ایجاد لیستی از اعداد یک تا ده استفاده کنیم تا
 از نوشتن کد تکراری جلوگیری کنیم.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="linux-and-unix-tutorial.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
-<pre><code>## “sub-1”
-## “sub-2”
-## “sub-3”
-## “sub-4”
-## “sub-5”
-## “sub-6”
-## “sub-7”
-## “sub-8”
-## “sub-9”
-## “sub-10”
-## “sub-11”
-## “sub-12”
-## “sub-13”
-## “sub-14”
-## “sub-15”
-## “sub-16”
-## “sub-17”
-## “sub-18”
-## “sub-19”
-## “sub-20”
-## “sub-21”
-## “sub-22”
-## “sub-23”
-## “sub-24”
-## “sub-25”
-## “sub-26”</code></pre>
 <pre><code>sub-1
 sub-2
 …
@@ -591,7 +565,7 @@ sub-26</code></pre>
 <p>اگر بخواهیم حتما اعداد به صورت دورقمی چاپ شوند
 یعنی قبل از اعداد یک رقمی یه رقم صفر نیز باشد می‌توانیم
 به صورت زیر نیز عمل کنیم.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="linux-and-unix-tutorial.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="linux-and-unix-tutorial.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">seq</span> <span class="at">-w</span> 1 26<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> “sub-<span class="va">$i</span>”<span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 <pre><code>sub-01
 sub-02
 …
@@ -603,7 +577,7 @@ sub-26</code></pre>
 <span dir="ltr"><code>~/</code></span>
 )
 حلقه اجرا کنیم.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="linux-and-unix-tutorial.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="linux-and-unix-tutorial.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="kw">`</span><span class="fu">ls</span> ~/<span class="kw">`;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$i</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div>
 <pre><code>bin
 Desktop
 Documents
